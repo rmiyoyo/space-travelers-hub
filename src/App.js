@@ -16,7 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <li><img alt="logo" /></li>
+        <li><img alt="My-logo" /></li>
         <nav>
           <ul>
             <li>
