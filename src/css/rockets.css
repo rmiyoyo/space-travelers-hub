@@ -1,0 +1,12 @@
+.rocket-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+  margin: 30px auto;
+}
+
+.rockts-image {
+  width: 360px;
+}

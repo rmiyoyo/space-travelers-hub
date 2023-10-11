@@ -8,7 +8,7 @@ const Navbar = () => (
     <img src={logo} alt="planet" />
     <ul>
       <li>
-        <Link to="/rockets">Rockets</Link>
+        <Link to="/Rockets">Rockets</Link>
       </li>
       <li>
         <Link to="/missions">Mission</Link>
