@@ -1,53 +1,67 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchRockets } from '../redux/rockets/RocketsSlice';
+import { fetchRockets, toggleReserve } from '../redux/rockets/RocketsSlice';
 import '../css/rockets.css';
 
-function Rockets() {
+const Rockets = () => {
   const dispatch = useDispatch();
-  const rockets = useSelector((state) => state.rockets.rockets);
+  const {
+    rockets, statusFetch, error,
+  } = useSelector((state) => state.rockets);
 
   useEffect(() => {
-    dispatch(fetchRockets());
-  }, [dispatch]);
+    if (statusFetch === 'idle') {
+      dispatch(fetchRockets());
+    }
+  }, [dispatch, statusFetch]);
 
-  const handleReserveRocket = () => {
-    // reserve a rocket here (dispatch an action)
+  const handleToggleReserve = (rocketId) => {
+    dispatch(toggleReserve(rocketId));
   };
 
-  const handleCancelReservation = () => {
-    // reservation here (dispatch an action)
-  };
+  if (statusFetch === 'failed') {
+    return (
+      <div>
+        Error:
+        {error}
+      </div>
+    );
+  }
 
   return (
-    <div>
-      <h2>Rockets</h2>
-      <ul>
-        {rockets.map((rocket) => (
-          <li className="rockets-wrapper" key={rocket.id}>
-            <img className="rockts-image" src={rocket.images[0]} alt={rocket.name} />
-            <div>
-              <h3>{rocket.name}</h3>
-              <p>{rocket.description}</p>
+    <main>
+      {rockets.map((rocket) => {
+        const {
+          flickr_images: img, name, description, reserve, id,
+        } = rocket;
 
-              {rocket.reserved ? (
-                <>
-                  <span>Reserved</span>
-                  <button type="button" onClick={() => handleCancelReservation(rocket.id)}>
-                    Cancel reservation
-                  </button>
-                </>
-              ) : (
-                <button type="button" onClick={() => handleReserveRocket(rocket.id)}>
-                  Reserve rocket
+        const reserved = reserve ? <span className="reserved">Reserved</span> : null;
+
+        return (
+
+          <article key={id}>
+            <div className="rockets-container">
+              <img className="rockets-images" src={img[0]} alt="Rocket" />
+              <section>
+                <h2 data-testid={id}>{name}</h2>
+                <p className="text-wrapper">
+                  {reserved}
+                  {description}
+                </p>
+                <button
+                  onClick={() => handleToggleReserve(id)}
+                  className={reserve ? 'not-reserved' : 'reserve-rocket'}
+                  type="button"
+                >
+                  {reserve ? 'Cancel Reservation' : 'Reserve Rocket'}
                 </button>
-              )}
+              </section>
             </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+          </article>
+        );
+      })}
+    </main>
   );
-}
+};
 
 export default Rockets;
