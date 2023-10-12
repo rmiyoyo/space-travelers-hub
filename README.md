@@ -1,70 +1,196 @@
-# Getting Started with Create React App
+SPACETRAVELER
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a name="Raphael"></a>
 
-## Available Scripts
+<div  align="center">
+<!--<img src="src/assets/RIYI-LOGO.png" alt="logo" width="160" border-radius=" 40px" height="auto"/>-->
+<br/>
+</div>
 
-In the project directory, you can run:
+# 📗 Table of Contents
 
-### `npm start`
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 \[SpaceTraveler\] ](#-spacetraveler-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Feature ](#key-feature-)
+  - [📹 Video Presentation ](#-video-presentation-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Usage](#usage)
+    - [Run tests](#run-tests)
+    - [Deployment](#deployment)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# 📖 [SpaceTraveler] <a name="about-project"></a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This is the web Math Calculation app that will help other developer get motivated on creating the react and API apps .
+Its Mobile vision app and can be accessed on the Mobile devices and Desktop
 
-### `npm test`
+**[Mobile portfolio app]** is a Mobile vision app that makes easier for Developers to chocase there projects
+so that other developer's can find them or see what the have built.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠 Built With <a name="built-with"></a>
 
-### `npm run build`
+- [x] HTML
+- [x] CSS
+- [x] ES6
+- [x] React
+- [x] Redux
+- [x] javascript
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Tech Stack <a name="tech-stack"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a></li>
+    <li><a href="https://www.javascript.com/">ES6</a></li>
+    <li><a href="https://webpack.js.org/">React</a></li>
+    <li><a href="https://www.themealdb.com/api.php"></a></li>
+  </ul>
+</details>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Key Feature <a name="key-features"></a>
 
-### `npm run eject`
+- **[API.]**
+- **[website.]**
+- **[]**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<!-- ## 🚀 Live Demo <a name="live-demo"></a> -->
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📹 Video Presentation <a name="video-presentation"></a>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Coming Soon
+- [Video Presentation]
 
-## Learn More
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 💻 Getting Started <a name="getting-started"></a>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To all the new developers this project will give you an idea how to start building your mobile vision apps
+To get a local copy up and running, follow these steps.
 
-### Code Splitting
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+In order to run this project you need:
+desktop-computer/laptop
+any text editor installed inside
 
-### Analyzing the Bundle Size
+### Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Clone this repository to your desired folder:
 
-### Making a Progressive Web App
+````sh
+cd my-folder
+Clone this repository to your desired folder:
+run:
+git clone (https://github.com/rmiyoyo/space-travelers-hub.git)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Install
+Install the prerequisites this project using:
+```sh
+cd Restaurant-System
+````
 
-### Advanced Configuration
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Usage
+
+To run the project:
+
+```bash
+
+npm install
+npm run
+npm start
+```
+
+### Run tests
+
+To run tests after setting up the linters, run the following command:
+
+```sh
+npx hint .
+```
+
+```sh
+npx stylelint "**/*.{css,scss}"
+```
+
+```bash
+npx eslint .
+```
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+You can deploy this project using:
+.Vscode
+.github
+.git
+.any text editor
 
-### `npm run build` fails to minify
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 👥 Authors <a name="Richard, Raphael, Samuel"></a>
+
+I would like Thank Microverse Team and my Collabaration partners whom they have paired me for the entire project the contributed there knowledge and ideas towards the Contact form part for this projects.
+
+👤 **Author1**
+
+👤 **Author2**
+
+👤 **Author3**
+**Richard Sikaonga**
+
+- GitHub: [@githubhandle](https://github.com/richie1988)
+- Twitter: [@twitterhandle](https://twitter.com/RichieSikaonga)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/richard-sikaonga-039940275/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- **[Consumption of more APIs]**
+- **[More dynamic styling]**
+- **[Improved UX interaction]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/rmiyoyo/space-travelers-hub/issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ⭐️ Show your support <a name="support"></a>
+
+Give a like if you like this project and kindly follow us using our social media handles
+If you like this project please feel free to reach me on social media platform and contact me ready to face new world challenges and takle them kindly show your support by reaching me and giving me the opportunity i need.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+I would like to thank the Microverse Team and the founder of Microverse for the opportunity is giving the young and old developer to merg through the world of opportunity.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENCE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
