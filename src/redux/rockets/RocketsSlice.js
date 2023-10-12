@@ -1,45 +1,81 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
-const initialState = {
-  rockets: [],
-  status: 'idle',
-  error: null,
-};
+const rocketsApiUrl = 'https://api.spacexdata.com/v4/rockets';
 
-export const fetchRockets = createAsyncThunk('rockets/fetchRockets', async () => {
+export const fetchRockets = createAsyncThunk('rockets/fetchRockets', async (_, { getState, rejectWithValue }) => {
+  const { rockets: rocketsState } = getState();
+  if (rocketsState.statusFetch === 'succeeded') {
+    return rocketsState.rockets;
+  }
   try {
-    const response = await axios.get('https://api.spacexdata.com/v4/rockets');
-    const rocketsWithDescriptionAndImages = response.data.map((rocket) => ({
-      id: rocket.id,
-      name: rocket.name,
-      description: rocket.description,
-      images: rocket.flickr_images, // Assuming images are stored in 'flickr_images' property
+    const response = await fetch(rocketsApiUrl);
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch rockets');
+    }
+
+    const responseData = await response.json();
+
+    const rocketsWithReserve = responseData.map((rocket) => ({
+      ...rocket,
+      reserve: false,
     }));
-    return rocketsWithDescriptionAndImages;
+
+    return rocketsWithReserve;
   } catch (error) {
-    throw new Error('the data was unable to be fetched');
+    return rejectWithValue(error.message);
   }
 });
 
-const rocketsSlice = createSlice({
+const initialState = {
+  rockets: [],
+  statusFetch: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
+  statusAdd: 'idle',
+  statusRemove: 'idle',
+  hasFetched: false,
+};
+
+const rocketSlice = createSlice({
   name: 'rockets',
   initialState,
-  reducers: {},
+  reducers: {
+    resetStatus: (state) => {
+      state.statusFetch = 'idle';
+      state.statusAdd = 'idle';
+      state.statusRemove = 'idle';
+      state.error = null;
+    },
+    toggleReserve: (state, action) => {
+      const targetId = action.payload;
+      state.rockets = state.rockets.map((rocket) => {
+        if (rocket.id === targetId) {
+          return {
+            ...rocket,
+            reserve: !rocket.reserve,
+          };
+        }
+        return rocket;
+      });
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchRockets.pending, (state) => {
-        state.status = 'loading';
+        state.statusFetch = 'loading';
       })
       .addCase(fetchRockets.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.rockets = action.payload;
+        state.statusFetch = 'succeeded';
+        if (!state.hasFetched) {
+          state.rockets = action.payload;
+        }
+        state.hasFetched = true;
       })
       .addCase(fetchRockets.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.error.message;
+        state.statusFetch = 'failed';
+        state.error = action.payload; // Store the error message in the state
       });
   },
 });
 
-export default rocketsSlice.reducer;
+export const { resetStatus, toggleReserve } = rocketSlice.actions;
+export default rocketSlice.reducer;
