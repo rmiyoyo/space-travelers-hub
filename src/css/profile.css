@@ -1,0 +1,27 @@
+.profile-wrapper {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: auto;
+  background-color: #0ff;
+  padding: 22px;
+  column-gap: 30px;
+}
+
+.profile-wrapper div {
+  border: 2px solid saddlebrown;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .profile-wrapper {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 22px;
+    column-gap: 30px;
+  }
+}
