@@ -72,7 +72,7 @@ const rocketSlice = createSlice({
       })
       .addCase(fetchRockets.rejected, (state, action) => {
         state.statusFetch = 'failed';
-        state.error = action.payload; // Store the error message in the state
+        state.error = action.payload;
       });
   },
 });

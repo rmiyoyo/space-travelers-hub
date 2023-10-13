@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleReserve } from '../redux/rockets/RocketsSlice';
+import '../css/rocketprofile.css';
 
 const ProfileRocket = () => {
   const rockets = useSelector((state) => state.rockets.rockets);
@@ -12,8 +13,7 @@ const ProfileRocket = () => {
   };
 
   return (
-    <div className="rockets-reserved">
-      <h2>My Rockets</h2>
+    <div className="reserved-rockets">
       {reservedRockets.length < 1 ? (
         <h3>Currently No Rockets Reserved</h3>
       ) : (
