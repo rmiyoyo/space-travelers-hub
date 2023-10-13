@@ -1,14 +1,11 @@
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMissions, joinMission } from '../redux/missions/missionsSlice';
+import { joinMission } from '../redux/missions/missionsSlice';
 import '../css/MissionsComponent.css';
 
 const MissionsComponent = () => {
   const dispatch = useDispatch();
   const { missions } = useSelector((state) => state.missions);
-  useEffect(() => {
-    dispatch(fetchMissions());
-  }, [dispatch]);
+
   return (
     <main>
       <table>
@@ -17,7 +14,7 @@ const MissionsComponent = () => {
             <th>Mission</th>
             <th>Description</th>
             <th>Status</th>
-            <th>
+            <th className="empty-space">
           &nbsp;
             </th>
           </tr>
@@ -29,7 +26,7 @@ const MissionsComponent = () => {
                 name, id, description, joined,
               } = mission;
               return (
-                <tr key={id}>
+                <tr key={id} data-testid="mission">
                   <th>{name}</th>
                   <td>
                     {description}
@@ -37,6 +34,7 @@ const MissionsComponent = () => {
                   <td>
                     <button
                       type="button"
+                      className={`${joined ? 'active' : 'non-active'} member-button`}
                     >
                       {joined ? 'Active Member' : 'Not a Member'}
                     </button>
@@ -44,6 +42,7 @@ const MissionsComponent = () => {
                   <td>
                     <button
                       type="button"
+                      className={`${joined ? 'leave-mission' : 'join-mission'} mission-button`}
                       onClick={() => dispatch(joinMission({ id }))}
                     >
                       { joined ? 'Leave Mission' : 'Join Mission'}
