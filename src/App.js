@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Missions from './pages/Mission';
 import { fetchRockets } from './redux/rockets/RocketsSlice';
+import { fetchMissions } from './redux/missions/missionsSlice';
 import Rockets from './components/Rockets';
 import Profile from './pages/Profile';
 
@@ -13,6 +14,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchRockets());
+    dispatch(fetchMissions());
   }, [dispatch]);
 
   return (
