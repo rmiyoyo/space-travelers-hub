@@ -2,6 +2,7 @@ import React from 'react';
 import '../css/profile.css';
 import Layout from './profileLayout';
 import MyRockets from './MyRockets';
+import { DragonsCount } from '../components/Dragon';
 import ProfileMission from '../components/ProfileMission';
 
 const Profile = () => (
@@ -17,6 +18,7 @@ const Profile = () => (
       </div>
       <div className="dragons">
         <h2>My Dragons</h2>
+        <DragonsCount />
       </div>
     </div>
   </Layout>
